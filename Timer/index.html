@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi Countdown Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h2>⏳ My Countdown</h2>
+    </div>
+    <div class="nav-right">
+      <button class="filter-btn active" data-filter="recent">Show All</button>
+      <button class="filter-btn" data-filter="important">Important</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+  </nav>
+
+  <h1>Multi Countdown Timer</h1>
+
+  <!-- Add new timer -->
+  <form id="countdownForm">
+    <input type="text" id="eventName" placeholder="Event Name (e.g. Birthday)" required />
+    <input type="datetime-local" id="eventDate" required />
+    <button type="submit">Add Countdown</button>
+  </form>
+
+  <!-- Timers -->
+  <div id="timers"></div>
+
+  <!-- Local sound preferred (place alarm.mp3 in same folder). 
+       If it can't play, a Web Audio fallback beep will trigger. -->
+  <audio id="alarmSound" src="alarm.mp3" preload="auto"></audio>
+
+  <script src="main.js"></script>
+</body>
+</html>

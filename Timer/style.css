@@ -1,0 +1,211 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background: url("bg_imagee.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Header */
+h1 {
+  margin: 15px 0 20px;
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.35);
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.7);
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.nav-left h2 {
+  color: #f1c40f;
+  margin: 0;
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.nav-right {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.22);
+  color: white;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+.filter-btn:hover { background: #3498db; transform: scale(1.05); }
+.filter-btn.active { background: #2980b9; }
+
+/* Form */
+form {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+input, button {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+input[type="text"],
+input[type="datetime-local"] {
+  background: rgba(255, 255, 255, 1);
+  color: #292828ff;
+  min-width: 220px;
+  transition: 0.25s;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus {
+  box-shadow: 0 0 15px #07c5ffff;
+  transform: translateY(-1px);
+}
+
+form button {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.25s;
+}
+form button:hover { background: linear-gradient(135deg, #1e8449, #27ae60); transform: translateY(-1px) scale(1.03); }
+
+/* Timers container */
+#timers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Timer card */
+.timer-card {
+  position: relative;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 18px 16px 14px;
+  min-width: 250px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease;
+}
+.timer-card:hover { transform: translateY(-4px) scale(1.01); }
+
+.timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.timer-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffdb4dff;
+  text-align: left;
+  margin: 0;
+  padding-right: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.badges { display: flex; gap: 6px; }
+
+.badge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.time {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 12px;
+}
+
+.time div { text-align: center; }
+.time p { font-size: 1.6rem; margin: 4px 0; }
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.25s;
+  color: #fff;
+}
+
+.btn-important { background: #f39c12; }
+.btn-important:hover { background: #d68910; transform: scale(1.05); }
+
+.btn-delete { background: #e74c3c; }
+.btn-delete:hover { background: #e31818ff; transform: scale(1.05); }
+
+/* Completed visual */
+.timer-card.completed {
+  outline: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.2) inset;
+  opacity: 0.92;
+}
+.timer-card.completed .timer-title { color: #9be7a9; }
+
+.endMsg {
+  display: none;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 8px 0 2px;
+}
+
+/* Finish effects */
+.flash { animation: flash 1s infinite alternate; }
+@keyframes flash {
+  from { background: rgba(46, 204, 113, 0.75); }
+  to   { background: rgba(52, 152, 219, 0.75); }
+}
+
+.shake { animation: shake 0.45s infinite; }
+@keyframes shake {
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0px); }
+}
